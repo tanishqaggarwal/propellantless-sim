@@ -51,26 +51,11 @@ psim_autocoded_cc_library(
     visibility = ["//visibility:public"],
 )
 
-# Builds the PSim sensor models
-psim_autocoded_cc_library(
-    name = "sensors",
-    deps = ["@lin//:lin", "//:gnc", "//:psim_core", "//:psim_utilities"],
-    visibility = ["//visibility:public"],
-)
-
-# Builds the PSim flight computer models
-psim_autocoded_cc_library(
-    name = "fc",
-    deps = ["@lin//:lin", "//:gnc", "//:psim_core", "//:psim_utilities"],
-    visibility = ["//visibility:public"],
-)
-
 # Builds all PSim models deemed "simulation" worthy.
 psim_cc_library(
     name = "simulations",
     deps = [
-        "//:psim_core", "//:psim_utilities", "//:psim_truth", "//:psim_sensors",
-        "//:psim_fc"
+        "//:psim_core", "//:psim_utilities", "//:psim_truth",
     ],
     visibility = ["//visibility:public"],
 )

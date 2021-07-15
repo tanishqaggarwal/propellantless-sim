@@ -65,23 +65,6 @@ GNC_TRACKED_CONSTANT(constexpr static double, earth_perihelion_time, -6287982.0)
 GNC_TRACKED_CONSTANT(constexpr static double, earth_period, 365.256363004 * 24.0 * 60.0 * 60.0);
 
 GNC_TRACKED_CONSTANT(constexpr static lin::Vector4d, q_eci_perifocal, 0.127456632677880, -0.158124280715206, 0.762378784011859, -0.614434787689722);
-
-GNC_TRACKED_CONSTANT(constexpr static float, b_noise_floor, 0.0f);
-
-GNC_TRACKED_CONSTANT(constexpr static double, max_mtr_moment, 0.113337 / 2.0);
-
-extern lin::Matrix3x3f J_sat;
-
-extern float pointer_Kp;
-
-extern float pointer_Kd;
-
-GNC_TRACKED_CONSTANT(constexpr static float, J_wheel, 135.0e-7f);
-
-GNC_TRACKED_CONSTANT(constexpr static float, w_wheel_max, 677.0f);
-
-GNC_TRACKED_CONSTANT(constexpr static int64_t, NANOSECONDS_IN_WEEK, 7ULL*24ULL*60ULL*60ULL*1'000'000'000ULL);
-
 }  // namespace constant
 }  // namespace gnc
 
