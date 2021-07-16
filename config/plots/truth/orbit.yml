@@ -3,3 +3,7 @@
 - type: Plot2D
   x: truth.t.s
   y: [truth.satellite.orbit.r.x, truth.satellite.orbit.r.y, truth.satellite.orbit.r.z]
+
+- type: Plot2D
+  x: truth.t.s
+  y: [truth.satellite.orbit.v.x, truth.satellite.orbit.v.y, truth.satellite.orbit.v.z]

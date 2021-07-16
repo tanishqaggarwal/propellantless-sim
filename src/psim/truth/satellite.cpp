@@ -46,8 +46,8 @@ void TwoPointSatellite::step() {
   auto const &mB = truth_satellite_B_m.get();
   Real m = mA + mB;
 
-  Vector3 r_eci = truth_satellite_orbit_r.get();
-  Vector3 v_eci = truth_satellite_orbit_v.get();
+  auto &r_eci = truth_satellite_orbit_r.get();
+  auto &v_eci = truth_satellite_orbit_v.get();
   auto &q_body_eci = truth_satellite_attitude_q_body_eci.get();
   auto &w_body = truth_satellite_attitude_w.get();
 
@@ -109,6 +109,7 @@ void TwoPointSatellite::step() {
   v_ecef = lin::ref<Vector3>(x, 3, 0);
   gnc::utl::rotate_frame(q_eci_ecef, r_ecef, r_eci);
   gnc::utl::rotate_frame(q_eci_ecef, v_ecef, v_eci);
+
   q_body_eci = lin::ref<Vector4>(x, 6, 0);
   w_body = lin::ref<Vector3>(x, 10, 0);
 }
