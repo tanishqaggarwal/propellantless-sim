@@ -1,0 +1,63 @@
+name: TwoPointSatelliteInterface
+type: Model
+comment: >
+    Models a satellite consisting of two point masses, separated by a long
+    (on the order of kilometers) tensioned string or rod. For simplicity, all
+    calculations are in ECI.
+
+params:
+    - name: "truth.satellite.A.m"
+      type: Real
+      comment: >
+        Mass of satellite component A, in kg.
+    - name: "truth.satellite.B.m"
+      type: Real
+      comment: >
+        Mass of satellite component B, in kg.
+
+adds:
+    - name: "truth.satellite.length"
+      type: Initialized Real
+      comment: >
+          Length of the separator between the two point masses.
+    - name: "truth.satellite.orbit.r"
+      type: Lazy Vector3
+      comment: >
+          Position of the satellite COM in units of meters.
+    - name: "truth.satellite.orbit.v"
+      type: Lazy Vector3
+      comment: >
+          Velocity of the satellite COM in units of meters per second.
+    - name: "truth.satellite.orbit.T"
+      type: Lazy Real
+      comment: >
+          Satellite's orbital kinetic energy.
+    - name: "truth.satellite.orbit.U"
+      type: Lazy Real
+      comment: >
+          Satellite's orbital potential energy.
+    - name: "truth.satellite.orbit.E"
+      type: Lazy Real
+      comment: >
+          Satellite's orbital total energy. This is essentially the difference
+          of the kinetic and potential energies.
+    - name: "truth.satellite.attitude.q.body_eci"
+      type: Initialized Vector4
+      comment: >
+          Attitude of the spacecraft. Also a quaternion transforming from ECI
+          to the body frame.
+    - name: "truth.satellite.attitude.w"
+      type: Initialized Vector3
+      comment: >
+          Angular rate of the spacecraft in the body frame.
+
+gets:
+    - name: "truth.dt.s"
+      type: Real
+    - name: "truth.earth.w"
+      type: Vector3
+    - name: "truth.earth.w_dot"
+      type: Vector3
+    - name: "truth.earth.q.eci_ecef"
+      type: Vector4
+  
