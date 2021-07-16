@@ -21,11 +21,11 @@ adds:
       comment: >
           Length of the separator between the two point masses.
     - name: "truth.satellite.orbit.r"
-      type: Lazy Vector3
+      type: Initialized Vector3
       comment: >
           Position of the satellite COM in units of meters.
     - name: "truth.satellite.orbit.v"
-      type: Lazy Vector3
+      type: Initialized Vector3
       comment: >
           Velocity of the satellite COM in units of meters per second.
     - name: "truth.satellite.orbit.T"

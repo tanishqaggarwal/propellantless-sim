@@ -1,10 +1,16 @@
-# Basic configuration information shared across all truth model initial
-# conditions.
-#
 seed  0
-
-# Time model shared initial conditions.
-
+truth.t.ns   0
 truth.dt.ns  100000000
+
+# Structural parameters
 truth.satellite.A.m  1.0
 truth.satellite.B.m  1.0
+truth.satellite.length 1000.0
+
+# Orbital parameters
+truth.satellite.orbit.r -1.57865e6  4.83522e6  4.59249e6
+truth.satellite.orbit.v -7037.69   -672.416   -1708.86
+
+# Attitude parameters
+truth.satellite.attitude.q.body_eci  0.0  0.0  0.0 1.0
+truth.satellite.attitude.w           0.0  0.0  0.0
