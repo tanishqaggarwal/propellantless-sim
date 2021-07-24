@@ -1,9 +1,26 @@
 
-# Plot all three coordinates of the leader spacecraft over time.
+# Plot all three coordinates of the spacecraft COM over time.
 - type: Plot2D
   x: truth.t.s
   y: [truth.satellite.orbit.r.x, truth.satellite.orbit.r.y, truth.satellite.orbit.r.z]
 
+# # Plot the spacecraft's two components' positions.
+# - type: Plot2D
+#   x: truth.t.s
+#   y: [truth.satellite.orbit.A.r.x, truth.satellite.orbit.A.r.y, truth.satellite.orbit.A.r.z, truth.satellite.orbit.B.r.x, truth.satellite.orbit.B.r.y, truth.satellite.orbit.B.r.z]
+
+# Plot the 3D trajectory in ECI
+- type: Plot3D
+  x: truth.satellite.orbit.r.x
+  y: truth.satellite.orbit.r.y
+  z: truth.satellite.orbit.r.z
+
+# # Plot velocity
+# - type: Plot2D
+#   x: truth.t.s
+#   y: [truth.satellite.orbit.v.x, truth.satellite.orbit.v.y, truth.satellite.orbit.v.z]
+
+# Plot energies
 - type: Plot2D
   x: truth.t.s
-  y: [truth.satellite.orbit.v.x, truth.satellite.orbit.v.y, truth.satellite.orbit.v.z]
+  y: [truth.satellite.orbit.T, truth.satellite.orbit.U]

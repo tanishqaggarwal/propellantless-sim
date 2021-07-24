@@ -3,14 +3,14 @@ seed  0
 truth.t.ns   0
 truth.dt.ns  100000000
 
-# Orbital parameters
+# Initial orbital parameters
 truth.satellite.orbit.r  6.8538e6 0.0      0.0
 truth.satellite.orbit.v  0.0      5.3952e3 5.3952e3
 
 # Structural parameters
 truth.satellite.A.m  1.0
 truth.satellite.B.m  1.0
-truth.satellite.length 1000.0
+truth.satellite.length 2000.0
 
 # Attitude parameters
 truth.satellite.attitude.q.body_eci  0.0  0.0  0.0 1.0

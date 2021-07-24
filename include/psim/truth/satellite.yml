@@ -19,15 +19,23 @@ adds:
     - name: "truth.satellite.length"
       type: Initialized Real
       comment: >
-          Length of the separator between the two point masses.
+          Length of the separator between the two point masses. (meters)
     - name: "truth.satellite.orbit.r"
       type: Initialized Vector3
       comment: >
-          Position of the satellite COM in units of meters.
+          Position of the satellite COM in units of meters. (ECI)
+    - name: "truth.satellite.orbit.A.r"
+      type: Lazy Vector3
+      comment: >
+          Position of satellite component A in units of meters. (ECI)
+    - name: "truth.satellite.orbit.B.r"
+      type: Lazy Vector3
+      comment: >
+          Position of satellite component B in units of meters. (ECI)
     - name: "truth.satellite.orbit.v"
       type: Initialized Vector3
       comment: >
-          Velocity of the satellite COM in units of meters per second.
+          Velocity of the satellite COM in units of meters per second.  (ECI)
     - name: "truth.satellite.orbit.T"
       type: Lazy Real
       comment: >
@@ -44,8 +52,8 @@ adds:
     - name: "truth.satellite.attitude.q.body_eci"
       type: Initialized Vector4
       comment: >
-          Attitude of the spacecraft. Also a quaternion transforming from ECI
-          to the body frame.
+          Attitude of the spacecraft. Also a quaternion transforming from the
+          ECI frame to the body frame.
     - name: "truth.satellite.attitude.w"
       type: Initialized Vector3
       comment: >
@@ -54,10 +62,6 @@ adds:
 gets:
     - name: "truth.dt.s"
       type: Real
-    - name: "truth.earth.w"
-      type: Vector3
-    - name: "truth.earth.w_dot"
-      type: Vector3
     - name: "truth.earth.q.eci_ecef"
       type: Vector4
   

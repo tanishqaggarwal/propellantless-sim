@@ -1,0 +1,17 @@
+# Angular rate over time.
+- type: Plot2D
+  x: truth.t.s
+  y: [truth.satellite.attitude.w.x, truth.satellite.attitude.w.y, truth.satellite.attitude.w.z]
+
+# Attitude quaternion over time.
+- type: Plot2D
+  x: truth.t.s
+  y: [truth.satellite.attitude.q.body_eci.w, truth.satellite.attitude.q.body_eci.x, truth.satellite.attitude.q.body_eci.y, truth.satellite.attitude.q.body_eci.z]
+
+# Attitude quaternion norm over time.
+#
+# This should be near one at all times. If not, the step size of the simulation
+# is likely too large or a higher order integrator needs to be used.
+# - type: Plot2D
+#   x: truth.t.s
+#   y: truth.satellite.attitude.q.body_eci.norm
