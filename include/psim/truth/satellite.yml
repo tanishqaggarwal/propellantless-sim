@@ -64,4 +64,5 @@ gets:
       type: Real
     - name: "truth.earth.q.eci_ecef"
       type: Vector4
-  
+    - name: "control.torque"
+      type: Vector3

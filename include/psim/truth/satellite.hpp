@@ -77,6 +77,7 @@ class TwoPointSatellite : public TwoPointSatelliteInterface<TwoPointSatellite> {
     Real const &mB;
     Real const &d;
     Vector4 const &q_eci_ecef;
+    Vector3 const &control_tau;
   };
 
   // Number of components in dynamics solver

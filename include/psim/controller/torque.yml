@@ -1,0 +1,26 @@
+name: SatTorqueControllerInterface
+type: Model
+comment: >
+  Direct torque controller for the two-point mass satellite.
+
+params:
+  - name: control.torque_max
+    type: Real
+    comment: >
+      Maximum magnitude of control torque.
+
+adds:
+  - name: control.torque
+    type: Lazy Vector3
+    comment: >
+      Control torque in the body frame.
+
+gets:
+  - name: truth.satellite.orbit.r
+    type: Vector3
+  - name: truth.satellite.orbit.v
+    type: Vector3
+  - name: truth.satellite.attitude.w
+    type: Vector3
+  - name: truth.satellite.attitude.q.body_eci
+    type: Vector4

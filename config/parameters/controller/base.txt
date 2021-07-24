@@ -1,0 +1,2 @@
+# Control torque maximum (Newton-meters)
+control.torque_max    0.1

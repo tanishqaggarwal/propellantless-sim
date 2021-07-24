@@ -42,6 +42,8 @@ TwoPointSatellite::dynamics(Real t, Vector<TwoPointSatellite::N_ODE> const &x, v
   auto const &m_B = data->mB;
   auto const &d = data->d;
   auto const &q_eci_ecef = data->q_eci_ecef;
+  auto const &control_tau = data->control_tau;
+  GNC_ASSERT_NEAR(0, control_tau(0), 1e-3);
 
   auto const r_eci = lin::ref<Vector3>(x, 0, 0);
   auto const v_eci = lin::ref<Vector3>(x, 3, 0);
@@ -104,7 +106,7 @@ TwoPointSatellite::dynamics(Real t, Vector<TwoPointSatellite::N_ODE> const &x, v
   /*
    * Step 2.3. Compute angular acceleration.
    */
-  Vector3 alpha_body = (lin::cross(xA, F_a) + lin::cross(xB, F_b)) / J;
+  Vector3 alpha_body = (lin::cross(xA, F_a) + lin::cross(xB, F_b) + control_tau) / J;
 
   /*
    * Step 3. Compute change in quaternion.
@@ -172,7 +174,9 @@ void TwoPointSatellite::step()
   auto &q_body_eci = truth_satellite_attitude_q_body_eci.get();
   auto &w_body = truth_satellite_attitude_w.get();
 
-  IntegratorData data{mA, mB, d, q_eci_ecef};
+  auto const &control_tau = control_torque->get();
+
+  IntegratorData data{mA, mB, d, q_eci_ecef, control_tau};
 
   // Prepare integrator inputs.
   Vector<N_ODE> x;
@@ -253,4 +257,3 @@ Real TwoPointSatellite::truth_satellite_orbit_E() const
 }
 
 }
-

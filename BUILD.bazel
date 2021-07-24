@@ -51,11 +51,17 @@ psim_autocoded_cc_library(
     visibility = ["//visibility:public"],
 )
 
+psim_autocoded_cc_library(
+    name = "controller",
+    deps = ["@lin//:lin", "//:gnc", "//:psim_core", "//:psim_utilities"],
+    visibility = ["//visibility:public"],
+)
+
 # Builds all PSim models deemed "simulation" worthy.
 psim_cc_library(
     name = "simulations",
     deps = [
-        "//:psim_core", "//:psim_utilities", "//:psim_truth",
+        "//:psim_core", "//:psim_utilities", "//:psim_truth", "//:psim_controller"
     ],
     visibility = ["//visibility:public"],
 )
